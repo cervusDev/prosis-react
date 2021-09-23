@@ -3,12 +3,13 @@ export const Api = {
 
   createUser: () => Api.baseUrl + "user",
   login: () => Api.baseUrl + "login",
+  questions: () => Api.baseUrl + "question",
 
   authHeader: {
     Authorization: "Bearer " + localStorage.getItem("JWT"),
   },
 
-  buildApiGetRequest: (url,  auth) =>
+  buildApiGetRequest: (url, auth) =>
     fetch(url, {
       method: "GET",
       headers: auth ? new Headers({ ...Api.authHeader }) : undefined,

@@ -2,12 +2,11 @@ import { useHistory, Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Api } from "../service/api";
 
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 
 import "../styles/auth.scss";
 
 export function Auth() {
-
   const history = useHistory();
 
   async function handleSubmit(event) {
@@ -25,7 +24,7 @@ export function Auth() {
 
     const response = await Api.buildApiPostRequest(Api.login(), payload);
     const result = await response.json();
-    
+
     localStorage.setItem("JWT", result.accessToken);
     history.push("/room");
   }
@@ -40,7 +39,7 @@ export function Auth() {
 
       <main>
         <div className="main-content">
-          <img src = {logo} alt = "logo"/>
+          <img src={logo} alt="logo" />
           <form onSubmit={handleSubmit}>
             <input
               type="text"

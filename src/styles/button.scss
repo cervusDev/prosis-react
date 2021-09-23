@@ -1,12 +1,12 @@
 .button {
   margin-top: 6.4rem;
   height: 5rem;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   font-weight: 500;
   background: #2e4c89;
-  color: #FFF;
+  color: #fff;
   padding: 0 3.2rem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 
   display: flex;
   justify-content: center;
@@ -14,19 +14,19 @@
 
   cursor: pointer;
   border: 0;
-  
-  transition: filter .2s;
+
+  transition: filter 0.2s;
 
   img {
-    margin-right: .8rem;
+    margin-right: 0.8rem;
   }
 
   &:not(:disabled):hover {
-    filter: brightness(.9);
+    filter: brightness(0.9);
   }
 
   &:disabled {
-    opacity: .6;
+    opacity: 0.6;
     cursor: not-allowed;
   }
 }
