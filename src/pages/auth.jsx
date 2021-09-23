@@ -33,8 +33,8 @@ export function Auth() {
     <div id="page-auth">
       <aside>
         <i className="fas fa-question"></i>
-        <strong>Login &amp; Desafios </strong>
-        <p>crie sua perfil e resolva questões interessantes</p>
+        <strong> Questão &amp; Resposta </strong>
+        <p>Hoje é um bom dia para começar novos desafios.</p>
       </aside>
 
       <main>

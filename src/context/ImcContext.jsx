@@ -2,10 +2,9 @@ import { createContext, useState, useEffect } from "react";
 import { Api } from "../service/api";
 
 export const ImcContext = createContext();
+
 export function ImcContextProvider({ children }) {
-
-
-  const [questions, setQuestions] = useState([]);
+  const [auht, setAuth] = useState([]);
   const [imc, setImc] = useState(undefined);
   const [result, setResult] = useState(undefined);
 
@@ -14,11 +13,11 @@ export function ImcContextProvider({ children }) {
       const response = await Api.buildApiGetRequest(Api.questions(), true);
       const result = await response.json();
 
-      setQuestions(result);
+      setAuth(result);
     };
 
     loadData();
-  }, [questions]);
+  }, []);
 
   function Imc(imc) {
     var result = "";
@@ -44,14 +43,14 @@ export function ImcContextProvider({ children }) {
     const height = Number(event.target.height.value);
     const weight = Number(event.target.weight.value);
 
-    const imc = weight / ((height / 100) * (height / 100));
+    const imc = weight / height**2;
 
     setImc(imc.toFixed(2));
     setResult(Imc(imc));
   }
 
   return (
-    <ImcContext.Provider value={{ questions, imc, result, handleImc }}>
+    <ImcContext.Provider value={{ auht, imc, result, handleImc }}>
       {children}
     </ImcContext.Provider>
   );

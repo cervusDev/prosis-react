@@ -1,4 +1,4 @@
-import { useHistory } from "react-router";
+import { useHistory,Link } from "react-router-dom";
 import { Button } from "../components/Button";
 
 import { Api } from "../service/api";
@@ -34,8 +34,8 @@ export function Profile() {
     <div id="page-auth">
       <aside>
         <i className="fas fa-signature"></i>
-        <strong>Login &amp; Desafios </strong>
-        <p>crie sua perfil e resolva questões interessantes</p>
+        <strong>Login &amp; Diversão </strong>
+        <p>Aproveite a vida, transforme-a em oportunidade</p>
       </aside>
 
       <main>
@@ -63,6 +63,11 @@ export function Profile() {
             />
             <Button>Cadastrar</Button>
           </form>
+
+          <div className="separator">
+            {" "}
+            volte a tela <Link to="/">login</Link>
+          </div>
         </div>
       </main>
     </div>

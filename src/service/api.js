@@ -1,9 +1,9 @@
 export const Api = {
-  baseUrl: "http://localhost:3001/",
+  baseUrl: process.env.REACT_APP_LOCAL_HOST,
 
-  createUser: () => Api.baseUrl + "user",
-  login: () => Api.baseUrl + "login",
-  questions: () => Api.baseUrl + "question",
+  createUser: () => Api.baseUrl + process.env.REACT_APP_LOGIN ,
+  login: () => Api.baseUrl + process.env.REACT_APP_USER,
+  questions: () => Api.baseUrl + process.env.REACT_APP_QUESTIONS,
 
   authHeader: {
     Authorization: "Bearer " + localStorage.getItem("JWT"),

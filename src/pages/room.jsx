@@ -1,25 +1,37 @@
 import { Api } from "../service/api";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "../styles/room.scss";
 import { Header } from "../components/Header";
 import { RoomCode } from "../components/Code";
+import { useHistory } from "react-router-dom";
 
 export function Room() {
-  const [questions, setQuestions] = useState([]);
+  const history = useHistory();
+  const [, setAuth] = useState([]);
 
   useEffect(() => {
     const loadData = async () => {
       const response = await Api.buildApiGetRequest(Api.questions(), true);
+      const result = await response.json();
 
-      const bodyResult = await response.json();
-
-      setQuestions(bodyResult);
+      setAuth(result);
     };
 
     loadData();
   }, []);
+
+  function NavigateToFC() {
+    history.push("/parsedTemp");
+  }
+
+  function NavigateToImc() {
+    history.push("/imc");
+  }
+
+  function NavigateTopPrice() {
+    history.push("/shop");
+  }
 
   return (
     <div id="page-room">
@@ -30,26 +42,30 @@ export function Room() {
       <main>
         <div className="room-title">
           <h1>Seja bem vindo!</h1>
-          <span>{questions.length} desafio(s)</span>
+          <span>3 desafio(s)</span>
         </div>
 
         <div className="form-footer">
           <div className="signin">
             <span>
-              Sobre este projeto, <button>github</button>.
+              Conheça o desenvolvedor, <a href="https://github.com/gucervus">github</a>.
             </span>
           </div>
         </div>
       </main>
 
       <section>
-        {questions.map((value) => (
-          <div>
-            <Link to={`/room/${value.title}`}>
-              <h2>{value.title}</h2>
-            </Link>
-          </div>
-        ))}
+        <div onClick={NavigateToFC}>
+          <h2>Celsius &amp; Fahrenheit</h2>
+        </div>
+
+        <div onClick={NavigateToImc}>
+          <h2>Calcular IMC</h2>
+        </div>
+
+        <div onClick={NavigateTopPrice}>
+          <h2>Valor da Compra</h2>
+        </div>
       </section>
     </div>
   );
