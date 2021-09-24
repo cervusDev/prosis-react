@@ -24,6 +24,7 @@ export function Auth() {
 
     const response = await Api.buildApiPostRequest(Api.login(), payload);
     const result = await response.json();
+    console.log(result)
 
     localStorage.setItem("JWT", result.accessToken);
     history.push("/room");
